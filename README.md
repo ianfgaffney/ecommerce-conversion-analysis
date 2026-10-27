@@ -106,16 +106,39 @@ The published workbook contains three pages:
 - **Funnel & Measurement:** Restricted ordered funnel and daily cart/checkout session coverage.
 - **Experiment Proposal:** Delivery-date hypothesis, experimental design, and sample requirements.
 
-## Repository contents and reproduction status
+## Project files
 
-The dashboard is published. Repository packaging is in progress; the complete analysis is not yet reproducible from this checkout alone.
+- `sql/` — BigQuery exploration, validation, reporting, and funnel queries.
+- `notebook/python_analysis.ipynb` — Python analysis and experiment planning.
+- `data/experiment_sample_sizes.csv` — Illustrative experiment sample requirements.
+- `requirements.txt` — Python dependencies.
 
-| File | Purpose |
-|---|---|
-| [sql/12_session_reporting_table.sql](sql/12_session_reporting_table.sql) | Original session export query used to produce `Sessions.csv` |
-| [data/experiment_sample_sizes.csv](data/experiment_sample_sizes.csv) | Four illustrative sample-size scenarios used in Tableau |
+## How to reproduce
 
-Still to add: the final dashboard session/funnel SQL, validation and event-audit queries, transaction/AOV audit, the current Python notebook, dependency instructions, and the executive report.
+1. Download or clone this repository.
+2. Run `sql/12_session_reporting_table.sql` in BigQuery using GoogleSQL.
+3. Export all results as `Sessions.csv` and place it inside the `notebook/` folder. Expected total: 360,129 rows.
+4. From a terminal in the repository's main folder, install dependencies:
+
+   ```bash
+   python3 -m pip install -r requirements.txt
+   ```
+
+5. Start JupyterLab:
+
+   ```bash
+   cd notebook
+   python3 -m jupyterlab
+   ```
+
+6. Open `python_analysis.ipynb`, restart the kernel, and run all cells.
+
+For the dashboard, run `sql/20_dashboard_session_funnel.sql`
+and export the results as `Dashboard_sessions.csv`.
+
+The notebook's original ordered-funnel results use event-date
+filtering from query 19. The dashboard uses session-date filtering
+from query 20, producing slightly different populations and counts.
 
 ### Reproduction workflow
 
