@@ -1,0 +1,2 @@
+--Question: What funnel events occurred in each user-session pair?
+--Output: one row per user-session pair with 0 or 1 for each event indicating whether it happened

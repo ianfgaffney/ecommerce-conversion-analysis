@@ -1,0 +1,2 @@
+--Question: Do any sessions contain a later purchase stage without a preceding purchase stage?
+--Output: Count of events that have a stage without the preceding stage

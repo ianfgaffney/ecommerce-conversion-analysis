@@ -1,0 +1,1 @@
+--Question: How many sessions completed each purchase stage in the required order?

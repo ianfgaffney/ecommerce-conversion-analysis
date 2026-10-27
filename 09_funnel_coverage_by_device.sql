@@ -1,0 +1,1 @@
+--Question: How much purchase activity does our strict ordered funnel capture per device?
